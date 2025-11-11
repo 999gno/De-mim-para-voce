@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>De: mim Para: você 💌</title>
+<style>
+  :root{
+    --bg:#0b0b0b;
+    --card:#0f0f10;
+    --accent:#ff9ec7;
+    --muted:#d8b4c8;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(180deg,var(--bg) 0%, #0a0a0a 60%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color:var(--white);
+    padding:20px;
+  }
+  .card{
+    background:linear-gradient(180deg, rgba(255,158,199,0.04), rgba(255,158,199,0.02));
+    border-radius:16px;
+    width:100%;
+    max-width:460px;
+    padding:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    text-align:center;
+  }
+  h1{
+    margin:0 0 12px 0;
+    font-size:20px;
+    color:var(--accent);
+    letter-spacing:0.2px;
+  }
+  .cover{
+    width:100%;
+    border-radius:12px;
+    overflow:hidden;
+    border: 1px solid rgba(255,158,199,0.12);
+  }
+  .cover img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .player{
+    margin:14px 0;
+  }
+  .typed{
+    margin-top:6px;
+    font-size:16px;
+    color:var(--muted);
+    min-height:72px;
+    white-space:pre-wrap;
+    text-align:center;
+    font-family: "Courier New", Courier, monospace;
+    letter-spacing:0.2px;
+    border-right:2px solid rgba(255,158,199,0.6);
+    padding:6px 10px;
+    display:inline-block;
+  }
+  /* hide the caret after finishing */
+  .typed.finished{ border-right:0; }
+  @media (max-width:420px){
+    .card{ padding:16px }
+    h1{ font-size:18px }
+  }
+</style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="title">
+    <h1 id="title">De: mim Para: você 💌</h1>
+    <div class="cover">
+      <img src="fcb1e049-95f8-473c-85e9-1edd229e1499.jpeg" alt="Foto de nós dois">
+    </div>
+
+    <div class="player">
+      <!-- YouTube mini player -->
+      <iframe width="100%" height="200" src="https://www.youtube.com/embed/hCVUokyfifY?rel=0&showinfo=0"
+        title="Música de nós dois" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <div id="typed" class="typed" aria-live="polite"></div>
+  </div>
+
+<script>
+// Texto a ser digitado (confirmado)
+const text = "Te amo imensuravelmente.\nTe amo inexplicavelmente.\nTe amo de todas as formas que existem.";
+
+// Typewriter effect - letra por letra
+const target = document.getElementById('typed');
+let i=0;
+function typeNext(){
+  if(i < text.length){
+    target.textContent += text.charAt(i);
+    i++;
+    // ajusta a velocidade por caractere
+    let delay = 40;
+    if(text.charAt(i-1) === '.' || text.charAt(i-1) === '\n') delay = 200;
+    setTimeout(typeNext, delay);
+  } else {
+    target.classList.add('finished');
+  }
+}
+// inicia ao carregar a página
+window.addEventListener('load', ()=>{
+  setTimeout(typeNext, 600);
+});
+</script>
+</body>
+</html>
